@@ -1,13 +1,21 @@
- <!-- Welcome to {{title}} <br>
- Hello {{user}} <br>
+ <div>
+  <app-navi></app-navi>
+  <div class="row">
+  
+    <div class="col-md-3">
+  
+      <app-brand></app-brand><br>
+      <app-color></app-color>
+     
+    </div>
 
- <ul>
-   <li *ngFor="let car of cars">{{car.Model}}</li>
- </ul> -->
- <app-car></app-car>
- <app-brand></app-brand>
- <app-color></app-color>
- <app-customer></app-customer>
- <app-navi></app-navi>
+     <div class="col-md-9">
+      <app-customer></app-customer>
+      <app-car></app-car>
+      <app-rental></app-rental>
+     </div>
+   </div>
+   <router-outlet></router-outlet>
+ </div>
+ 
 
-<router-outlet></router-outlet>
