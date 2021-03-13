@@ -1,1 +1,20 @@
-<p>customer works!</p>
+<div *ngIf="dataLoaded==false" class="spinner-grow text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<h3>Müşteriler</h3>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+    <tr>
+       <th scope="col">#</th>
+       <th scope="col">Kullanıcı No.</th>
+       <th scope="col">Şirket Adı</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let customer of customers">
+        <td>{{customer.customerId}}</td>
+        <td>{{customer.userId}}</td>
+        <td>{{customer.companyName}}</td>
+    </tr>
+    </tbody>
+</table> 

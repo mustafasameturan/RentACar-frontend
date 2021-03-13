@@ -1,1 +1,26 @@
-<p>rental works!</p>
+
+<div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
+</div>
+<h3>Kiralanan Araçlar</h3>
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Müşteri</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Model</th>
+        <th scope="col">Kiralanış Tarihi</th>
+        <th scope="col">Dönüş Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rental of rentals" >
+        <td>{{rental.rentalId}}</td>
+        <td>{{rental.firstName}} {{rental.lastName}}</td>
+        <td>{{rental.brandName}}</td>
+        <td>{{rental.model}}</td>
+        <td>{{rental.rentDate | date:'dd-MM-YYYY'}}</td>
+        <td>{{(rental.returnDate == null)? "Not yet delivered!": rental.returnDate | date:'dd-MM-YYYY'}}</td>
+      </tr>
+    </tbody>
+  </table>
