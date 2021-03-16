@@ -3,7 +3,12 @@
 </div>
 <ul *ngIf="dataLoaded==true" class="list-group">
     
-  <li class="list-group-item" style="background-color:royalblue"><h4 style="font-weight: 500; color:rgb(255, 255, 255);">Markalar</h4></li>
+  <li class="list-group-item" 
+  style="background-color:firebrick"
+  routerLink ="/cars"
+  [class]="getAllBrandClass()"
+  (click)="removeCurrentBrand()">
+  <h4 style="font-weight: 500; color:rgb(255, 255, 255);">Markalar</h4></li>
 
   <li (click) ="setCurrentBrand(brand)" 
   routerLink = "/cars/brands/{{brand.brandId}}"

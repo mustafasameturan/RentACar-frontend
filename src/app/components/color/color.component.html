@@ -2,7 +2,13 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 <ul *ngIf="dataLoaded==true" class="list-group">
-    <li class="list-group-item" style="background-color:royalblue;"><h4 style="font-weight: 500; color:rgb(255, 255, 255);">Renkler</h4></li>
+    <li class="list-group-item" 
+    style="background-color:firebrick;"
+    routerLink ="/cars"
+    [class]="getAllColorClass()"
+    (click) ="removeCurrentColor()">
+    <h4 style="font-weight: 500; color:rgb(255, 255, 255);">Renkler</h4></li>
+    
     <li (click) ="setCurrentColor(color)"
     routerLink = "/cars/colors/{{color.colorId}}"
     *ngFor="let color of colors;" 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: royalblue;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: firebrick;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" style="color: white;">KiralaGo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,11 +7,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+            <a class="nav-link active" aria-current="page" href="#" style="color: white;">Ana Sayfa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" style="color: white;">Link</a>
+            <a class="nav-link active" routerLink="/customers" aria-current="page" href="#" style="color: white;" >Müşteriler</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/rentals" aria-current="page" href="#" style="color: white;" >Kiralanan Araç Listesi</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Link</a>
+          </li> -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
               Dropdown
@@ -23,9 +29,9 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;">Disabled</a>
-          </li>
+          </li> -->
         </ul>
         <form class="d-flex ml-auto">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
