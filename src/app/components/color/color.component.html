@@ -2,16 +2,39 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 <ul *ngIf="dataLoaded==true" class="list-group">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"></label>
+        <input type="text" [(ngModel)]="filterText"
+        class="form-control" id="filterText" 
+        placeholder="Arayacağınız Rengi Giriniz">
+    </div>
+
     <li class="list-group-item" 
     style="background-color:firebrick;"
     routerLink ="/cars"
     [class]="getAllColorClass()"
-    (click) ="removeCurrentColor()">
+    (click) ="removeCurrentColor()"
+    class="btn btn-ligth">
     <h4 style="font-weight: 500; color:rgb(255, 255, 255);">Renkler</h4></li>
     
     <li (click) ="setCurrentColor(color)"
     routerLink = "/cars/colors/{{color.colorId}}"
-    *ngFor="let color of colors;" 
-    [class]="getCurrentColorClass(color)" >{{ color.colorName }}</li>
-</ul>
+    *ngFor="let color of colors | filterPipeColor:filterText" 
+    [class]="getCurrentColorClass(color)" 
+    class = "btn btn-ligth">{{ color.colorName }}</li>   
+</ul><br>
+
+<div>
+    <section style="float:right">
+        <button type="button" 
+        class="btn btn-danger"
+        routerLink="/cars"
+        (click)="removeCurrentColor()">Temizle</button>
+    </section>   
+</div>
+
+
+
+
+
 

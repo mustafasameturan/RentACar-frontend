@@ -1,7 +1,15 @@
 <div *ngIf="dataLoaded==false" class="spinner-grow text-primary" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
+
 <ul *ngIf="dataLoaded==true" class="list-group">
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"></label>
+    <input type="text" [(ngModel)]="filterText"
+    class="form-control" id="brand" 
+    placeholder="Arayacağınız Markayı Giriniz">
+  </div>
     
   <li class="list-group-item" 
   style="background-color:firebrick"
@@ -12,8 +20,18 @@
 
   <li (click) ="setCurrentBrand(brand)" 
   routerLink = "/cars/brands/{{brand.brandId}}"
-  *ngFor="let brand of brands;" 
-  [class]="getCurrentBrandClass(brand)" >{{ brand.brandName}}</li>
+  *ngFor="let brand of brands | filterPipeBrand:filterText" 
+  [class]="getCurrentBrandClass(brand)"
+  class="btn btn-ligth" >{{ brand.brandName }}</li> 
 
-</ul>
+</ul><br>
+
+<div>
+  <section style="float:right">
+      <button routerLink="/cars"
+      type="button" 
+      class="btn btn-danger"
+      (click)="removeCurrentBrand()">Temizle</button>
+  </section>   
+</div>
 

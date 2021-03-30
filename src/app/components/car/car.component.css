@@ -3,3 +3,8 @@
     color: rgb(255, 255, 255);
     font-weight:bool;
 }
+
+.card{
+    margin-left: 1em;
+    margin-bottom: 1em;
+}

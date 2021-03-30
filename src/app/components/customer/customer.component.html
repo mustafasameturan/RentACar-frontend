@@ -1,7 +1,12 @@
+<div class="card mb-2">
+    <div class="card-header text-center">
+       <strong>Müşteriler</strong>
+</div>
+
 <div *ngIf="dataLoaded==false" class="spinner-grow text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<h3>Müşteriler</h3>
+
 <table *ngIf="dataLoaded==true" class="table">
     <thead class="table-dark">
     <tr>

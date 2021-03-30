@@ -1,0 +1,39 @@
+<div class="content"><br>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Marka Güncelle</h5></div>
+            <div class="card-body">
+
+                <form [formGroup]="brandUpdateForm">
+                    <div class="mb-3">
+                        <label for="brandName">Marka Adı</label>
+                        <div class="form-group">
+                            <input type="text" 
+                            id="brandId" 
+                            formControlName="brandName" class="form-control" 
+                            placeholder="Marka Adı"/>
+                        </div>
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="brandId">Marka Numarası</label>
+                        <div class="form-group">
+                            <input type="number" 
+                            id="brandId" 
+                            formControlName="brandId" class="form-control" 
+                            placeholder="Marka Numarası"/>
+                        </div>
+                    </div> -->
+                    
+                </form>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-fill btn-warning" (click)="update()">Güncelle</button>
+                </div> 
+            </div>
+
+        </div>
+    </div>
+</div>
