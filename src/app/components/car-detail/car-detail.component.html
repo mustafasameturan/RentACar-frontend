@@ -1,0 +1,35 @@
+<div class="card-mt2" *ngFor="let car of cars"><br>
+    <h3 class="card-header" style="text-align: center;">{{car.brandName}}</h3>
+</div>
+<div *ngFor="let image of images "><br>
+    <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" height="600px">
+</div>
+<div class="card mt-2" *ngFor="let car of cars">
+    <h3 class="card-header" style="text-align: center;">Detaylar</h3>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="card-title" style="text-align: center;">Model</h4>
+                <p class="card-text"  style="text-align: center;" >{{car.model}}</p>
+                <h4 class="card-title" style="text-align: center;">Model Yılı</h4>
+                <p class="card-text" style="text-align: center;">{{car.modelYear}}</p>
+            </div>
+            <div class="col-sm-6">
+                <h4 class="card-title " style="text-align: center;">Günlük Fiyat</h4>
+                <p class="card-text"  style="text-align: center;" >{{car.dailyPrice | currency:"₺"}} </p>
+                <h4 class="card-title " style="text-align: center;">Haftalık Fiyat</h4>
+                <p class="card-text" style="text-align: center;" >{{car.dailyPrice | weekPrice:100 | currency:"₺"}}</p>
+            </div>
+            <div class="col-sm-12">
+                <h4 class="card-title " style="text-align: center;">Aylık Fiyat</h4>
+                <p class="card-text" style="text-align: center;">{{car.dailyPrice | monthPrice:300 | currency:"₺"}}</p>
+            </div>
+            
+        </div>
+    </div>  
+</div>
+
+<div class="d-grid gap-2">
+    <button class="btn btn-dark" type="button">Aracı Kirala</button>
+</div>
+

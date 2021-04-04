@@ -3,7 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-car',
@@ -12,14 +15,18 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  images: CarImage[] = [];
   brands: Brand[] = [];
+  currentCar: Car;
+  imageUrl = environment.baseUrl;
 
   dataLoaded = false;
 
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private carImageService:CarImageService
   ) {}
 
   ngOnInit(): void {
@@ -72,4 +79,22 @@ export class CarComponent implements OnInit {
       }
     })
   }
+
+  getCarById(carId: number) {
+    this.carService.getCarsById(carId).subscribe((response) => {
+      this.cars = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+  setCurrentCarDetail(car : Car){
+    this.currentCar = car;
+  }
+
+  getImagesByCarId(carId : number){
+    this.carImageService.getByCarId(carId).subscribe((response)=>{
+      this.images = response.data;
+    });
+  }
+
 }

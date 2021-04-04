@@ -19,24 +19,23 @@
     placeholder="Arayacağınız Arabayı Giriniz">
 </div> -->
 
+
 <div class="row">
     <div class="card" *ngFor="let car of cars" style="width: 18rem;"><br>
         <div class="card-body">
-            <h5 class="card-title text-center">{{car.brandName | uppercase}}</h5>
+            <h5 class="card-title text-center" routerLink="/cars/car-detail/{{car.carId}}">{{car.brandName | uppercase}}</h5>
         </div>
+        <img src="{{imageUrl}}{{car.imagePath}}" height="170px">
         <ul class="list-group list-group-flush" >
             <li class="list-group-item text-center">{{car.model}}</li>
             <li class="list-group-item text-center">{{car.modelYear}}</li>
             <li class="list-group-item text-center">{{car.description}}</li>
             <li class="list-group-item text-center ">Günlük Fiyat : {{car.dailyPrice | currency:"₺"}} </li>
-            <li class="list-group-item text-center ">Haftalık Fiyat : {{car.dailyPrice | weekPrice:100 | currency:"₺"}} </li>
-            <li class="list-group-item text-center">Aylık Fiyat : {{car.dailyPrice | monthPrice:300 | currency:"₺"}} </li>
-        </ul>
-        <div class="card-body">
-            <section style="float:left">
-                <button type="button" class="btn btn-ligth">Kirala</button>
-            </section>
-        </div>   
+        </ul><br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-dark" type="button" (click)="setCurrentCarDetail(car)" routerLink="/cars/car-detail/{{car.carId}}">Detayı Gör</button>
+        </div>
     </div>
 </div>
+
 
